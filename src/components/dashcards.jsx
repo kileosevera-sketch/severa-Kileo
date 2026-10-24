@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { AlertTriangle, FileText, Search, Smile, TrendingUp, Upload } from 'lucide-react';
 
 function DashCards({ onNavigateToAnalyze }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -22,48 +23,61 @@ function DashCards({ onNavigateToAnalyze }) {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl">😊</div>
+    <div className="mx-auto max-w-7xl space-y-7">
+      <header className="space-y-2">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#52706A]">Dashboard overview</p>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Customer intelligence</h1>
+        <p className="max-w-2xl text-sm leading-6 text-slate-600">
+          Bring post-sale feedback together to review sentiment, identify issues, and prepare analysis.
+        </p>
+      </header>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="dashboard-summary-card dashboard-metric-card flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#E8EFEA] text-[#354E4B]"><Smile aria-hidden="true" className="h-6 w-6" /></div>
           <div>
-            <h3 className="font-semibold text-slate-800 text-sm">Sentiment Analysis</h3>
-            <p className="text-xs text-slate-400">Understand customer emotion</p>
+            <h3 className="text-base font-semibold text-slate-800">Sentiment analysis</h3>
+            <p className="mt-1.5 text-sm leading-5 text-slate-500">Understand customer emotion</p>
           </div>
         </div>
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl">⚠️</div>
+        <div className="dashboard-summary-card dashboard-metric-card flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#10231F] text-teal-300"><AlertTriangle aria-hidden="true" className="h-6 w-6" /></div>
           <div>
-            <h3 className="font-semibold text-slate-800 text-sm">Severity Detection</h3>
-            <p className="text-xs text-slate-400">Prioritize urgent feedback</p>
+            <h3 className="text-base font-semibold text-slate-800">Severity detection</h3>
+            <p className="mt-1.5 text-sm leading-5 text-slate-500">Prioritize urgent feedback</p>
           </div>
         </div>
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl">🔍</div>
+        <div className="dashboard-summary-card dashboard-metric-card flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#E8EFEA] text-[#354E4B]"><Search aria-hidden="true" className="h-6 w-6" /></div>
           <div>
-            <h3 className="font-semibold text-slate-800 text-sm">Failure Prediction</h3>
-            <p className="text-xs text-slate-400">Reveal likely root causes</p>
+            <h3 className="text-base font-semibold text-slate-800">Failure prediction</h3>
+            <p className="mt-1.5 text-sm leading-5 text-slate-500">Reveal likely root causes</p>
           </div>
         </div>
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl">📈</div>
+        <div className="dashboard-summary-card dashboard-metric-card flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#E8EFEA] text-[#354E4B]"><TrendingUp aria-hidden="true" className="h-6 w-6" /></div>
           <div>
-            <h3 className="font-semibold text-slate-800 text-sm">Trends Analysis</h3>
-            <p className="text-xs text-slate-400">Track patterns over time</p>
+            <h3 className="text-base font-semibold text-slate-800">Trends analysis</h3>
+            <p className="mt-1.5 text-sm leading-5 text-slate-500">Track patterns over time</p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
-          <h2 className="text-base font-bold text-slate-800">Upload feedbacks</h2>
+      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-3">
+        <section className="dashboard-panel space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#52706A]">Get started</p>
+            <h2 className="mt-1 text-lg font-semibold text-slate-900">Upload feedback</h2>
+            <p className="mt-1 text-sm leading-5 text-slate-500">Select a file to preview sample feedback records.</p>
+          </div>
 
           <div className="space-y-1">
-            <label className="text-[11px] font-semibold text-slate-500 uppercase">Aina ya Faili (Format)</label>
+            <label className="text-xs font-medium text-slate-700" htmlFor="dashboard-file-type">File format</label>
             <select
+              id="dashboard-file-type"
               value={fileType}
               onChange={(e) => setFileType(e.target.value)}
-              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none"
+              className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-700 focus:border-[#52706A] focus:outline-none focus:ring-2 focus:ring-[#A3B899]/50"
             >
               <option value="all">Any File (*.csv, *.pdf, *.xlsx, etc.)</option>
               <option value="csv">CSV File (*.csv)</option>
@@ -72,36 +86,37 @@ function DashCards({ onNavigateToAnalyze }) {
             </select>
           </div>
 
-          <div className="border-2 border-dashed border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center bg-slate-50/50 hover:bg-slate-50 transition-colors text-center">
-            <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-              </svg>
+          <div className="rounded-xl border border-dashed border-[#A3B899] bg-[#F7FAF7] p-6 text-center transition-colors hover:bg-[#F1F6F1]">
+            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#E8EFEA] text-[#354E4B]">
+              <Upload aria-hidden="true" className="h-5 w-5" />
             </div>
-            <p className="text-xs font-medium text-slate-700 mb-0.5">Drop file here or browse</p>
-            <p className="text-[10px] text-slate-400 mb-3">Max size: 25 MB</p>
-            <label className="cursor-pointer">
-              <input type="file" accept=".csv,.pdf,.xlsx,.xls,.txt" className="hidden" onChange={handleFileChange} />
-              <span className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-xs font-semibold rounded-lg hover:bg-slate-100 shadow-sm inline-block">
-                Browse file
-              </span>
+            <p className="text-sm font-medium text-slate-800">Choose a feedback file</p>
+            <p className="mt-1 text-xs text-slate-500">CSV, PDF, Excel, or text · file size is not checked in this preview</p>
+            <label className="mt-4 inline-flex cursor-pointer items-center gap-2 rounded-lg bg-[#354E4B] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2C423F] focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#354E4B]">
+              <FileText aria-hidden="true" className="h-4 w-4" />
+              Browse file
+              <input type="file" accept=".csv,.pdf,.xlsx,.xls,.txt" className="sr-only" onChange={handleFileChange} aria-label="Choose feedback file" />
             </label>
             {selectedFile && (
-              <p className="mt-2 text-[11px] text-emerald-600 font-medium truncate max-w-full">📄 {selectedFile.name}</p>
+              <p className="mt-3 flex items-center justify-center gap-2 truncate text-xs font-medium text-[#354E4B]">
+                <FileText aria-hidden="true" className="h-4 w-4 shrink-0" />
+                <span className="truncate">{selectedFile.name}</span>
+              </p>
             )}
           </div>
-        </div>
 
-        <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-center min-h-[220px]">
+        </section>
+
+        <section className="dashboard-panel flex min-h-[320px] flex-col justify-center rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 xl:col-span-2">
           {feedbackData.length > 0 ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex flex-col gap-2 border-b border-slate-100 pb-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h3 className="font-bold text-sm text-slate-800">Uploaded Feedback Distribution 📋</h3>
-                  <p className="text-xs text-slate-400">Mwonekano wa idadi na chanzo cha data zilizopakiwa</p>
+                  <h3 className="text-base font-semibold text-slate-900">Feedback distribution</h3>
+                  <p className="mt-1 text-sm text-slate-500">Sample records grouped by source</p>
                 </div>
-                <span className="text-xs text-slate-600 font-medium bg-slate-100 px-2.5 py-1 rounded-lg">
-                  Total: {feedbackData.length} Records
+                <span className="w-fit rounded-full bg-[#E8EFEA] px-3 py-1.5 text-xs font-semibold text-[#354E4B]">
+                  {feedbackData.length} sample records
                 </span>
               </div>
               <div className="space-y-3 pt-1">
@@ -111,7 +126,7 @@ function DashCards({ onNavigateToAnalyze }) {
                     <span className="font-bold text-slate-700">2 Records</span>
                   </div>
                   <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                    <div className="bg-slate-600 h-full rounded-full" style={{ width: '50%' }}></div>
+                    <div className="h-full rounded-full bg-[#354E4B]" style={{ width: '50%' }}></div>
                   </div>
                 </div>
                 <div>
@@ -120,7 +135,7 @@ function DashCards({ onNavigateToAnalyze }) {
                     <span className="font-bold text-slate-700">1 Record</span>
                   </div>
                   <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                    <div className="bg-slate-500 h-full rounded-full" style={{ width: '25%' }}></div>
+                    <div className="h-full rounded-full bg-[#52706A]" style={{ width: '25%' }}></div>
                   </div>
                 </div>
                 <div>
@@ -129,31 +144,31 @@ function DashCards({ onNavigateToAnalyze }) {
                     <span className="font-bold text-slate-700">1 Record</span>
                   </div>
                   <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                    <div className="bg-slate-400 h-full rounded-full" style={{ width: '25%' }}></div>
+                    <div className="h-full rounded-full bg-[#A3B899]" style={{ width: '25%' }}></div>
                   </div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center text-center text-slate-400 py-4">
-              <span className="text-3xl mb-2">📊</span>
-              <p className="text-sm font-semibold text-slate-600">View Feedback Visuals</p>
-              <p className="text-xs text-slate-400 max-w-sm mt-1">Upload faili lako hapo kushoto ili kuona muundo na idadi ya feedback zilizopakiwa kwenye grafu hii.</p>
+            <div className="flex flex-col items-center justify-center py-8 text-center">
+              <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#E8EFEA] text-[#354E4B]"><TrendingUp aria-hidden="true" className="h-5 w-5" /></span>
+              <p className="text-sm font-semibold text-slate-800">Your overview will appear here</p>
+              <p className="mt-1 max-w-sm text-sm leading-5 text-slate-500">Choose a feedback file to preview the sample records and their sources.</p>
             </div>
           )}
-        </div>
+        </section>
       </div>
 
-      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+      <section className="dashboard-panel space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <div>
-          <h2 className="text-xl font-bold text-slate-800">Raw feedback preview</h2>
-          <p className="text-xs text-slate-400 mt-1">Review the latest imported records before running analysis.</p>
+          <h2 className="text-lg font-semibold text-slate-900">Feedback preview</h2>
+          <p className="mt-1 text-sm text-slate-500">Review records before continuing to analysis.</p>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full min-w-[640px] text-left">
             <thead>
-              <tr className="border-b border-slate-200 text-[11px] font-bold tracking-wider text-slate-400 uppercase">
+              <tr className="border-b border-slate-200 bg-slate-50 text-[11px] font-semibold tracking-wider text-slate-500">
                 <th className="py-3 px-2">ID</th>
                 <th className="py-3 px-2">CUSTOMER FEEDBACK</th>
                 <th className="py-3 px-2">SOURCE</th>
@@ -165,14 +180,14 @@ function DashCards({ onNavigateToAnalyze }) {
               {feedbackData.length > 0 ? (
                 feedbackData.map((row) => (
                   <tr key={row.id} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-4 px-2 text-slate-400 font-mono">{row.id}</td>
-                    <td className="py-4 px-2 font-medium text-slate-800 max-w-md truncate">{row.feedback}</td>
-                    <td className="py-4 px-2 text-slate-500">{row.source}</td>
-                    <td className="py-4 px-2 text-slate-500">{row.date}</td>
-                    <td className="py-4 px-2">
+                    <td className="px-3 py-3 font-mono text-slate-500">{row.id}</td>
+                    <td className="max-w-md truncate px-3 py-3 font-medium text-slate-800">{row.feedback}</td>
+                    <td className="px-3 py-3 text-slate-600">{row.source}</td>
+                    <td className="px-3 py-3 text-slate-600">{row.date}</td>
+                    <td className="px-3 py-3">
                       <span className={`px-3 py-1 rounded-full text-[11px] font-semibold inline-block ${
-                        row.status === 'Positive' ? 'bg-emerald-100 text-emerald-800' :
-                        row.status === 'Negative' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-600'
+                        row.status === 'Positive' ? 'bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200' :
+                        row.status === 'Negative' ? 'bg-rose-50 text-rose-800 ring-1 ring-rose-200' : 'bg-slate-100 text-slate-700 ring-1 ring-slate-200'
                       }`}>
                         {row.status}
                       </span>
@@ -181,11 +196,11 @@ function DashCards({ onNavigateToAnalyze }) {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="py-12 text-center text-slate-400">
+                  <td colSpan={5} className="py-12 text-center">
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <span className="text-3xl">📥</span>
-                      <p className="font-medium text-sm text-slate-500">No feedbacks uploaded yet</p>
-                      <p className="text-xs text-slate-400">Upload a file on the left box to preview feedbacks here.</p>
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E8EFEA] text-[#354E4B]"><FileText aria-hidden="true" className="h-5 w-5" /></span>
+                      <p className="text-sm font-medium text-slate-700">No feedback selected</p>
+                      <p className="text-xs text-slate-500">Choose a file above to preview the sample records.</p>
                     </div>
                   </td>
                 </tr>
@@ -194,31 +209,31 @@ function DashCards({ onNavigateToAnalyze }) {
           </table>
         </div>
 
-        <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-slate-100 pt-4 sm:flex-row sm:items-center">
           <div className="flex items-baseline gap-3">
-            <span className="text-3xl font-extrabold text-slate-800">{feedbackData.length}</span>
+            <span className="text-2xl font-bold text-slate-900">{feedbackData.length}</span>
             <div>
-              <p className="text-xs font-bold text-slate-700">Total Feedbacks Loaded</p>
-              <p className="text-[11px] text-slate-400">{feedbackData.length > 0 ? 'Ready for analysis' : 'Awaiting file upload'}</p>
+              <p className="text-sm font-semibold text-slate-800">Records in preview</p>
+              <p className="text-xs text-slate-500">{feedbackData.length > 0 ? 'Sample preview only' : 'Awaiting file selection'}</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="text-xs text-slate-400">Showing {feedbackData.length} records</span>
+            <span className="text-xs text-slate-500">Showing {feedbackData.length} sample records</span>
             <button
               onClick={onNavigateToAnalyze}
               disabled={feedbackData.length === 0}
               className={`px-5 py-2.5 rounded-xl font-semibold text-xs flex items-center gap-2 shadow-sm transition-all ${
                 feedbackData.length > 0
-                  ? 'bg-[#354E4B] hover:bg-[#2c423f] text-white cursor-pointer active:scale-95'
+                  ? 'bg-[#354E4B] hover:bg-[#2C423F] text-white cursor-pointer focus-visible:outline-[#354E4B]'
                   : 'bg-slate-200 text-slate-400 cursor-not-allowed'
               }`}
             >
-              <span>✨</span> Run Analysis
+              <span>✨</span> Continue to analysis
             </button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

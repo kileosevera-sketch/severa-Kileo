@@ -1,215 +1,144 @@
 
 function Analysis() {
   return (
-    <div className="p-8 space-y-8 bg-slate-50 min-h-screen">
+    <div className="mx-auto max-w-7xl space-y-7">
       
       {/* 1. HEADER SECTION */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <header className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-800">Customer intelligence</h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#52706A]">Analyze</p>
+          <h1 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Customer intelligence</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
             AI-classified sentiment, severity, and predicted causes across uploaded feedbacks.
           </p>
         </div>
-      </div>
+      </header>
 
       {/* 2. BANNER YA JUU */}
-      <div className="bg-[#354E4B] text-white p-8 rounded-3xl shadow-lg relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+      <section className="relative flex min-h-48 flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-[#354E4B] p-6 text-white shadow-sm sm:flex-row sm:items-center sm:p-8">
 
         <div className="space-y-2 relative z-10">
-          <span className="text-[10px] font-bold tracking-widest text-[#C8A857] uppercase bg-white/10 px-2.5 py-1 rounded-full">
+          <span className="inline-flex rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#E8EFEA]">
             AWAITING UPLOAD DATA
           </span>
-          <h2 className="text-xl md:text-2xl font-bold">
+          <h2 className="mt-3 text-lg font-semibold sm:text-xl">
             No feedback data analyzed yet
           </h2>
-          <p className="text-xs text-slate-300 max-w-xl">
+          <p className="mt-2 max-w-xl text-sm leading-6 text-slate-200">
             Please upload your feedback file on the dashboard and run analysis to populate intelligence data.
           </p>
         </div>
 
-        <div className="relative z-10 flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 w-20 h-20 rounded-full shadow-inner flex-shrink-0">
+        <div className="relative z-10 flex min-h-16 min-w-28 items-center justify-center rounded-lg border border-white/20 bg-white/10 px-4 py-3">
           <div className="text-center">
-            <span className="text-sm font-extrabold text-[#C8A857]">0%</span>
-            <p className="text-[9px] text-slate-300 uppercase tracking-wider">Confidence</p>
+            <span className="text-sm font-bold text-white">Not run</span>
+            <p className="mt-1 text-[10px] uppercase tracking-wider text-slate-200">Analysis status</p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 3. CUSTOMER SENTIMENT BREAKDOWN (Bila namba za uongo) */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
+      <section className="space-y-4">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sentiment</span>
-            <h3 className="text-lg font-bold text-slate-800">Customer sentiment breakdown</h3>
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#52706A]">Sentiment</span>
+            <h3 className="mt-1 text-lg font-semibold text-slate-900">Customer sentiment breakdown</h3>
           </div>
-          <span className="bg-slate-100 px-3 py-1 rounded-full text-xs font-semibold text-slate-600">0 total</span>
+          <span className="w-fit rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">No records analyzed</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {/* Positive Card */}
-          <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
-            <div className="flex justify-between items-center text-xs font-bold text-slate-700">
+          <div className="dashboard-metric-card space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
               <span>Positive</span>
-              <span>0%</span>
+              <span className="text-slate-500">Not available</span>
             </div>
-            <h4 className="text-3xl font-extrabold text-slate-900">0</h4>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#354E4B] h-full rounded-full" style={{ width: '0%' }}></div>
+            <h4 className="text-3xl font-bold text-slate-400">—</h4>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+              <div className="h-full w-0 rounded-full bg-[#354E4B]"></div>
             </div>
-            <p className="text-[11px] text-slate-400">Customers expressing satisfaction</p>
+            <p className="text-xs text-slate-500">Available after feedback analysis</p>
           </div>
 
           {/* Neutral Card */}
-          <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
-            <div className="flex justify-between items-center text-xs font-bold text-slate-700">
+          <div className="dashboard-metric-card space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
               <span>Neutral</span>
-              <span>0%</span>
+              <span className="text-slate-500">Not available</span>
             </div>
-            <h4 className="text-3xl font-extrabold text-slate-900">0</h4>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#A3B899] h-full rounded-full" style={{ width: '0%' }}></div>
+            <h4 className="text-3xl font-bold text-slate-400">—</h4>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+              <div className="h-full w-0 rounded-full bg-[#A3B899]"></div>
             </div>
-            <p className="text-[11px] text-slate-400">Informational or mixed feedback</p>
+            <p className="text-xs text-slate-500">Available after feedback analysis</p>
           </div>
 
           {/* Negative Card */}
-          <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
-            <div className="flex justify-between items-center text-xs font-bold text-slate-700">
+          <div className="dashboard-metric-card space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between text-sm font-semibold text-slate-800">
               <span>Negative</span>
-              <span>0%</span>
+              <span className="text-slate-500">Not available</span>
             </div>
-            <h4 className="text-3xl font-extrabold text-slate-900">0</h4>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#C87557] h-full rounded-full" style={{ width: '0%' }}></div>
+            <h4 className="text-3xl font-bold text-slate-400">—</h4>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+              <div className="h-full w-0 rounded-full bg-[#C87557]"></div>
             </div>
-            <p className="text-[11px] text-slate-400">Customers reporting friction</p>
+            <p className="text-xs text-slate-500">Available after feedback analysis</p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 4. SEVERITY LEVELS BREAKDOWN */}
-      <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
-        <h3 className="font-bold text-base text-slate-800">Severity Levels Breakdown</h3>
+      <section className="dashboard-panel space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#52706A]">Severity</p>
+          <h3 className="mt-1 text-lg font-semibold text-slate-900">Severity levels</h3>
+          <p className="mt-1 text-sm text-slate-500">Severity counts will be shown after feedback is analyzed.</p>
+        </div>
         
         <div className="space-y-4 divide-y divide-slate-100">
           <div className="flex items-center gap-4 pt-2">
-            <span className="w-3.5 h-3.5 rounded bg-[#354E4B] inline-block"></span>
+            <span className="h-3 w-3 shrink-0 rounded-sm bg-[#354E4B]"></span>
             <div>
               <h4 className="font-bold text-sm text-slate-800">Low</h4>
-              <p className="text-xs text-slate-400">0 feedbacks</p>
+              <p className="text-xs text-slate-500">Not available</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4 pt-4">
-            <span className="w-3.5 h-3.5 rounded bg-[#A3B899] inline-block"></span>
+            <span className="h-3 w-3 shrink-0 rounded-sm bg-[#A3B899]"></span>
             <div>
               <h4 className="font-bold text-sm text-slate-800">Medium</h4>
-              <p className="text-xs text-slate-400">0 feedbacks</p>
+              <p className="text-xs text-slate-500">Not available</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4 pt-4">
-            <span className="w-3.5 h-3.5 rounded bg-[#C87557] inline-block"></span>
+            <span className="h-3 w-3 shrink-0 rounded-sm bg-[#C87557]"></span>
             <div>
               <h4 className="font-bold text-sm text-slate-800">High / Critical</h4>
-              <p className="text-xs text-slate-400">0 feedbacks</p>
+              <p className="text-xs text-slate-500">Not available</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 5. SEHEMU MPYA YA CAUSE OF FAILURE (AI Prediction) */}
-      <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+      <section className="dashboard-panel space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <div>
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">AI Prediction</span>
-          <h3 className="text-lg font-bold text-slate-800">Cause of failure</h3>
-          <p className="text-xs text-slate-400">Likely root causes within negative feedbacks.</p>
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#52706A]">Failure analysis</span>
+          <h3 className="mt-1 text-lg font-semibold text-slate-900">Potential causes</h3>
+          <p className="mt-1 text-sm text-slate-500">Predicted causes appear after feedback analysis is available.</p>
         </div>
 
-        <div className="space-y-6 pt-2">
-          {/* Item 1 */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-2">
-                <span className="text-slate-400 font-mono text-[10px]">01</span> Payment processing
-              </span>
-              <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-[11px]">0 feedbacks</span>
-                <span className="font-bold text-slate-800">0%</span>
-              </div>
-            </div>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#C87557] h-full rounded-full" style={{ width: '0%' }}></div>
-            </div>
+          <div className="flex min-h-40 flex-col items-center justify-center rounded-lg border border-dashed border-slate-200 bg-slate-50 px-6 py-10 text-center">
+            <p className="text-sm font-medium text-slate-700">No predicted causes available</p>
+            <p className="mt-1 max-w-md text-xs leading-5 text-slate-500">
+              Cause categories and risk levels will appear here only after an analysis produces results.
+            </p>
           </div>
-
-          {/* Item 2 */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-2">
-                <span className="text-slate-400 font-mono text-[10px]">02</span> Account access & login
-              </span>
-              <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-[11px]">0 feedbacks</span>
-                <span className="font-bold text-slate-800">0%</span>
-              </div>
-            </div>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#354E4B] h-full rounded-full" style={{ width: '0%' }}></div>
-            </div>
-          </div>
-
-          {/* Item 3 */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-2">
-                <span className="text-slate-400 font-mono text-[10px]">03</span> Feature limitations
-              </span>
-              <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-[11px]">0 feedbacks</span>
-                <span className="font-bold text-slate-800">0%</span>
-              </div>
-            </div>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#354E4B] h-full rounded-full" style={{ width: '0%' }}></div>
-            </div>
-          </div>
-
-          {/* Item 4 */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-2">
-                <span className="text-slate-400 font-mono text-[10px]">04</span> Response time
-              </span>
-              <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-[11px]">0 feedbacks</span>
-                <span className="font-bold text-slate-800">0%</span>
-              </div>
-            </div>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#354E4B] h-full rounded-full" style={{ width: '0%' }}></div>
-            </div>
-          </div>
-
-          {/* Item 5 */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-2">
-                <span className="text-slate-400 font-mono text-[10px]">05</span> Other
-              </span>
-              <div className="flex items-center gap-4">
-                <span className="text-slate-400 text-[11px]">0 feedbacks</span>
-                <span className="font-bold text-slate-800">0%</span>
-              </div>
-            </div>
-            <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-              <div className="bg-[#354E4B] h-full rounded-full" style={{ width: '0%' }}></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
 
     </div>
   );
